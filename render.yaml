@@ -1,0 +1,19 @@
+﻿services:
+  - type: web
+    name: underlamp
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: singapore
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TRUST_PROXY
+        value: "true"
+      - key: ALLOW_LOCAL_PROVIDERS
+        value: "false"
+      - key: APP_USER
+        value: friend
+      - key: APP_PASSWORD
+        sync: false
